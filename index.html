@@ -19,12 +19,11 @@
     h1 {
         margin: 0;
         padding: 0;
+        height: 100%;
     }
 
     .main {
-        width: 100vw;
-        height: 100vh;
-        transition: all 0.8s;
+        transition: all .25s;
     }
 </style>
 
@@ -32,11 +31,12 @@
     let main = document.querySelector('.main')
 
     window.addEventListener('load', function () {
-
+        document.getElementsByTagName('body')[0].style.height = window.innerHeight + 'px';
         main.style.width = window.innerWidth + 'px'
         main.style.height = window.innerHeight + 'px'
 
         window.addEventListener('resize', function () {
+            document.getElementsByTagName('body')[0].style.height = window.innerHeight + 'px';
             main.style.width = window.innerWidth + 'px'
             main.style.height = window.innerHeight + 'px'
         })

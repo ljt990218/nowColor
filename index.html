@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+    <link rel="shortcut icon" href="favicon.ico">
+    <title>COLOR</title>
+</head>
+
+<body>
+    <div class="main"></div>
+</body>
+
+<style>
+    html,
+    body,
+    h1 {
+        margin: 0;
+        padding: 0;
+    }
+
+    .main {
+        width: 100vw;
+        height: 100vh;
+        transition: all 0.5s;
+    }
+</style>
+
+<script>
+    let main = document.querySelector('.main')
+
+    setColor()
+
+    setInterval(() => {
+        setColor()
+    }, 1000)
+
+    function setColor() {
+        let nowData = new Date()
+        let h = nowData.getHours() > 9 ? nowData.getHours() : '0' + nowData.getHours()
+        let m = nowData.getMinutes() > 9 ? nowData.getMinutes() : '0' + nowData.getMinutes()
+        let s = nowData.getSeconds() > 9 ? nowData.getSeconds() : '0' + nowData.getSeconds()
+        main.style.backgroundColor = `#${h}${m}${s}`
+        main.innerHTML = `<h1 style="color: #fff; text-align: center; line-height: 100vh;">#${h}${m}${s}</h1>`
+    }
+</script>
+
+</html>

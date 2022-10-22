@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="main">AA</div>
+    <div class="main"></div>
 </body>
 
 <style>
@@ -43,7 +43,7 @@
         let m = nowData.getMinutes() > 9 ? nowData.getMinutes() : '0' + nowData.getMinutes()
         let s = nowData.getSeconds() > 9 ? nowData.getSeconds() : '0' + nowData.getSeconds()
         main.style.backgroundColor = `#${h}${m}${s}`
-        main.innerHTML = `<h1 style="color: #fff; text-align: center; line-height: 100vh;">#${h}${m}${s}</h1>`
+        main.innerHTML = `<h1 style="color: #fff; text-align: center; line-height: 100vh;">#${h}${m}${s}#</h1>`
     }
 </script>
 

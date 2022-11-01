@@ -27,11 +27,13 @@
         position: fixed;
         top: 0;
         left: 0;
+        right: 0;
         bottom: 0;
         transition: all .3s;
     }
 
     h1 {
+        width: 100%;
         transition: all .3s;
         text-align: center;
         color: #fff;
@@ -76,25 +78,19 @@
             `#${h}${m}${s}`
     }
 
-    h1.onclick = function () {
+    h1.onclick = function (even) {
         let str = `#${h}${m}${s}`
+        copyPageUrl(str)
+    }
 
-        var clipboard = new ClipboardJS('.h1')
-
-        clipboard.on('success', function (e) {
-            alert(`复制成功 ${e.text}`)
-            e.clearSelection()
-        });
-
-        clipboard.on('error', function (e) {
-            console.log(e)
-            console.error('Action:', e.action)
-            console.error('Trigger:', e.trigger)
-        })
-
+    async function copyPageUrl(data) {
+        try {
+            await navigator.clipboard.writeText(data);
+            alert('复制成功' + '：' + data)
+        } catch (err) {
+            console.error('Failed to copy: ', err);
+        }
     }
 </script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
 
 </html>
